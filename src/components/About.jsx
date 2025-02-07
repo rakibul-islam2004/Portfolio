@@ -54,8 +54,12 @@ const About = () => {
         >
           <h2 className="text-4xl font-bold mb-6">About Me</h2>
           <p className="text-lg mb-6 leading-relaxed">
-            Hi, I am Rakibul Islam, a student of Computer Science and
-            Technology. I am a passionate{" "}
+            Hi, I am <span className="font-semibold">Rakibul Islam</span>, a
+            student of{" "}
+            <span className="font-semibold">
+              Computer Science and Technology
+            </span>
+            . I am a passionate{" "}
             <span className="font-semibold">Web Developer</span> with experience
             in{" "}
             <span className="font-semibold">React, Node.js, and MongoDB</span>.

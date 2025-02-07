@@ -1,22 +1,37 @@
-import React, { useState, useEffect } from "react";
-import { useRef, useContext } from "react";
+import React, { useContext } from "react";
 import emailjs from "emailjs-com";
 import { ThemeContext } from "../context/ThemeContext";
+import { useInView } from "react-intersection-observer";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const { theme } = useContext(ThemeContext);
 
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs.sendForm("service_id", "template_id", e.target, "user_id").then(
-      (result) => {
-        alert("Message sent!");
-      },
-      (error) => {
-        alert("Failed to send!");
-      }
-    );
-    e.target.reset();
+    emailjs
+      .sendForm(
+        "PortfolioR1k12u1",
+        "protfolior1k12u1",
+        e.target,
+        "n0mTymYDlCY80h1a0"
+      )
+      .then(
+        (result) => {
+          toast.success("Message sent successfully!", {
+            position: "bottom-right", // Use string position
+            autoClose: 3000, // Customize the auto close time
+          });
+        },
+        (error) => {
+          toast.error("Failed to send the message. Please try again!", {
+            position: "bottom-right", // Use string position
+            autoClose: 3000, // Customize the auto close time
+          });
+        }
+      );
+    e.target.reset(); // Reset the form after sending
   };
 
   const themeColors =
@@ -40,33 +55,49 @@ const Contact = () => {
           inputText: "text-gray-900",
         };
 
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.3,
+  });
+
+  const slideInAnimation = {
+    animation: inView ? "slideIn 1s ease-out" : "none",
+    opacity: inView ? 1 : 0,
+    transform: inView ? "translateY(0)" : "translateY(30px)",
+  };
+
   return (
-    <div className={`${themeColors.bg} p-8`} id="contact">
+    <div
+      ref={ref}
+      className={`${themeColors.bg} p-8 transition-all duration-1000`}
+      id="contact"
+      style={slideInAnimation}
+    >
       <h2 className={themeColors.heading}>Contact Me</h2>
       <form onSubmit={sendEmail} className="max-w-lg mx-auto space-y-4">
         <input
           type="text"
           name="name"
           placeholder="Your Name"
-          className={`w-full p-2 rounded ${themeColors.inputBg} border ${themeColors.inputBorder} ${themeColors.inputText}`}
+          className={`w-full p-2 rounded ${themeColors.inputBg} border ${themeColors.inputBorder} ${themeColors.inputText} transition-all duration-300`}
           required
         />
         <input
           type="email"
           name="email"
           placeholder="Your Email"
-          className={`w-full p-2 rounded ${themeColors.inputBg} border ${themeColors.inputBorder} ${themeColors.inputText}`}
+          className={`w-full p-2 rounded ${themeColors.inputBg} border ${themeColors.inputBorder} ${themeColors.inputText} transition-all duration-300`}
           required
         />
         <textarea
           name="message"
           placeholder="Your Message"
-          className={`w-full p-2 rounded ${themeColors.inputBg} border ${themeColors.inputBorder} ${themeColors.inputText}`}
+          className={`w-full p-2 rounded ${themeColors.inputBg} border ${themeColors.inputBorder} ${themeColors.inputText} transition-all duration-300`}
           required
         ></textarea>
         <button
           type="submit"
-          className={`w-full ${themeColors.buttonBg} p-2 rounded text-white`}
+          className={`w-full ${themeColors.buttonBg} p-2 rounded text-white transition-all duration-300 hover:opacity-80`}
         >
           Send Message
         </button>

@@ -7,6 +7,8 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import { ThemeContext } from "./context/ThemeContext";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const { theme } = useContext(ThemeContext);
@@ -40,6 +42,7 @@ function App() {
       <div className={`${shadowColor} rounded-lg transition-all`}>
         <Footer />
       </div>
+      <ToastContainer />
     </div>
   );
 }

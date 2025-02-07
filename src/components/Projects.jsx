@@ -7,28 +7,29 @@ import { ThemeContext } from "../context/ThemeContext";
 const projects = [
   {
     name: "Library Management System",
-    image: "/project1.jpg",
+    image: "/project1.png",
     description:
       "A full-stack library system using React, Node.js, and MongoDB.",
-    liveLink: "https://your-library-project.com",
-    githubLink: "https://github.com/yourusername/library-management",
-    techStack: "React, Node.js, MongoDB",
+    liveLink: "https://lighthearted-blini-802884.netlify.app",
+    githubLink:
+      "https://github.com/rakibul-islam2004/Library-Management-System",
+    techStack: "React, Node.js,Firebase, MongoDB",
   },
   {
     name: "Product Hunt Website",
-    image: "/project2.jpg",
+    image: "/project2.png",
     description: "A platform to discover and share tech products.",
-    liveLink: "https://your-product-hunt.com",
-    githubLink: "https://github.com/yourusername/product-hunt",
-    techStack: "React, Firebase, MongoDB",
+    liveLink: "https://product-hunt-12rr.netlify.app",
+    githubLink: "https://github.com/rakibul-islam2004/Product-Hunt",
+    techStack: "React, Node.js, Firebase, MongoDB",
   },
   {
-    name: "Gaming Tournament Platform",
-    image: "/project3.jpg",
-    description: "A website to manage eSports tournaments.",
-    liveLink: "https://your-gaming-platform.com",
-    githubLink: "https://github.com/yourusername/gaming-tournament",
-    techStack: "React, Node.js, MongoDB",
+    name: "Lingo Bingo",
+    image: "/project3.png",
+    description: "A Vocabulary Learning Application.",
+    liveLink: "https://illustrious-toffee-9ff5e9.netlify.app",
+    githubLink: "https://github.com/rakibul-islam2004/Lingo-Bingo",
+    techStack: "React, Firebase",
   },
 ];
 
