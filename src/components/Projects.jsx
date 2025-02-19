@@ -61,7 +61,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-primary p-6 rounded-lg shadow-lg hover:scale-105 transition-transform"
+              className="bg-primary p-6 rounded-lg shadow-lg flex flex-col justify-between h-full"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
@@ -81,7 +81,7 @@ const Projects = () => {
               <p className={`text-sm font-semibold ${textColors.subText}`}>
                 {project.techStack}
               </p>
-              <div className="flex justify-center space-x-6 mt-4">
+              <div className="flex justify-center space-x-6 mt-auto pt-4">
                 <a
                   href={project.liveLink}
                   target="_blank"
