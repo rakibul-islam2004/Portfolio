@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import profileImg from "../assets/profile.png";
-import { ThemeContext } from "../context/ThemeContext"; // Assuming you have a theme context
+import { ThemeContext } from "../context/ThemeContext";
 
 const About = () => {
   const { theme } = useContext(ThemeContext);
@@ -12,13 +11,13 @@ const About = () => {
       (entries) => {
         setInView(entries[0].isIntersecting);
       },
-      { threshold: 0.5 } // Trigger when 50% of the section is visible
+      { threshold: 0.5 }
     );
 
     const element = document.getElementById("about");
     if (element) observer.observe(element);
 
-    return () => observer.disconnect(); // Clean up observer on unmount
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -30,27 +29,23 @@ const About = () => {
     >
       <div className="container mx-auto flex flex-col md:flex-row items-center md:items-start gap-12">
         {/* Profile Image Section */}
-        <motion.div
-          className="w-64 h-80 md:w-72 md:h-96 rounded-lg shadow-xl overflow-hidden"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={
-            inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }
-          }
-          transition={{ duration: 1 }}
+        <div
+          className={`w-64 h-80 md:w-72 md:h-96 rounded-lg shadow-xl overflow-hidden transition-all duration-1000 ${
+            inView ? "opacity-100 scale-100" : "opacity-0 scale-90"
+          }`}
         >
           <img
             src={profileImg}
             alt="Rakibul"
             className="w-full h-full object-cover"
           />
-        </motion.div>
+        </div>
 
         {/* About Text Section */}
-        <motion.div
-          className="md:flex-1 text-center md:text-left"
-          initial={{ x: 100, opacity: 0 }}
-          animate={inView ? { x: 0, opacity: 1 } : { x: 100, opacity: 0 }}
-          transition={{ duration: 1 }}
+        <div
+          className={`md:flex-1 text-center md:text-left transition-all duration-1000 ${
+            inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+          }`}
         >
           <h2 className="text-4xl font-bold mb-6">About Me</h2>
           <p className="text-lg mb-6 leading-relaxed">
@@ -76,7 +71,7 @@ const About = () => {
             </span>
             .
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
